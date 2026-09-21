@@ -3,6 +3,7 @@ import Product from "@/models/Product";
 import Order from "@/models/Order";
 import { Package, ShoppingCart, DollarSign, Clock, CheckCircle, Truck } from "lucide-react";
 import Link from "next/link";
+export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboard() {
   await connectDB();
