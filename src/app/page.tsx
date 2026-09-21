@@ -2,6 +2,7 @@ import Link from "next/link";
 import connectDB from "@/lib/db";
 import Product from "@/models/Product";
 import { ArrowRight, Truck, ShieldCheck, Heart, MessageCircle, ShoppingCart } from "lucide-react";
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   await connectDB();
