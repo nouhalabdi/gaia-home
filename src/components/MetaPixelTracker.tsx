@@ -1,21 +1,23 @@
-
 "use client";
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { initMetaPixel, trackEvent } from '@/lib/meta-pixel';
 
 export default function MetaPixelTracker() {
   const pathname = usePathname();
 
   
   useEffect(() => {
-    initMetaPixel();
+    import('@/lib/meta-pixel').then(({ initMetaPixel }) => {
+      initMetaPixel();
+    });
   }, []);
 
   
   useEffect(() => {
     if (pathname) {
-      trackEvent('PageView');
+      import('@/lib/meta-pixel').then(({ trackEvent }) => {
+        trackEvent('PageView');
+      });
     }
   }, [pathname]);
 
